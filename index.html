@@ -28,41 +28,308 @@
         <div id="de-loader"></div>
         <!-- preloader end -->
 
-        <header class="transparent header-light header-float">
+        <div class="top-bar">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="header-inner">
-                            <div class="de-flex sm-pt10">
-                                <div class="de-flex-col">
-                                    <!-- logo begin -->
-                                    <div id="logo">
-                                        <a href="index.html">
-                                            <img class="logo-main" src="images/icon1.png" alt="" style="height: 70%; width: 70%; padding-top: 10px; padding-bottom: 10px;">
-                                            <img class="logo-scroll" src="images/icon1.png" alt="" style="height: 70%; width: 70%; padding-top: 10px; padding-bottom: 10px;">
-                                            <img class="logo-mobile" src="images/icon1.png" alt="" style="height: 70%; width: 70%;">
+                        <div class="de-flex sm-pt10" style="display: flex; justify-content: center; align-items: center; color: black; padding-top: 8px;">
+                            <div class="de-flex-col contact-info-wrapper">
+                                <span class="contact-info">
+                                    <div class="contact-item">
+                                        <img src="images/telephone.png" alt="" class="contact-icon">
+                                        <a href="tel:5143884575">514 388-4575</a>
+                                    </div>
+                                    <div class="contact-item desktop-only">
+                                        <img src="images/email.png" alt="" class="contact-icon">
+                                        <a href="mailto:info@bcabinetdentaire.com">info@bcabinetdentaire.com</a>
+                                    </div>
+                                    <div class="contact-item desktop-only">
+                                        <img src="images/location.png" alt="" class="contact-icon">
+                                        <a href="https://www.google.com/maps/place/b+cabinet+dentaire+-+Dre+Bao+Tran+-+Dentiste+Ahunstic/@45.5664513,-73.656759,17z/data=!3m1!4b1!4m6!3m5!1s0x4cc918b4b0d830bd:0x1bedd88f66790b5b!8m2!3d45.5664513!4d-73.6541841!16s%2Fg%2F11gcqwcn0w?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D" class="lang-switcher">
+                                            1730, rue Fleury Est, Montréal (Québec) H2C 1T2
                                         </a>
                                     </div>
-                                    <!-- logo end -->
+                                </span>
+                            </div>
+                            <div class="de-flex-col language-switcher desktop-only" style="padding-left: 60px;">
+                                <a href="#"><img src="images/french.png" alt="" class="lang-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mobile-phone-bar">
+            <div class="container">
+                <div class="mobile-phone-content">
+                    <img src="images/telephone.png" alt="" class="mobile-phone-icon">
+                    <a href="tel:5143884575">514 388-4575</a>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            /* Mobile Menu Styles */
+            .menu-btn {
+                display: none;
+                width: 30px;
+                height: 30px;
+                position: relative;
+                cursor: pointer;
+                margin-left: 15px;
+                z-index: 1000;
+            }
+
+            .menu-btn span,
+            .menu-btn span:before,
+            .menu-btn span:after {
+                display: block;
+                background: #000;
+                width: 100%;
+                height: 2px;
+                position: absolute;
+                transition: all 0.3s ease;
+            }
+
+            .menu-btn span {
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .menu-btn span:before {
+                content: '';
+                top: -8px;
+            }
+
+            .menu-btn span:after {
+                content: '';
+                bottom: -8px;
+            }
+
+            .menu-btn.active span {
+                background: transparent;
+            }
+
+            .menu-btn.active span:before {
+                transform: rotate(45deg);
+                top: 0;
+            }
+
+            .menu-btn.active span:after {
+                transform: rotate(-45deg);
+                bottom: 0;
+            }
+
+            .contact-info {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .contact-item {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .contact-icon {
+                height: 17px;
+                width: auto;
+            }
+
+            .lang-icon {
+                height: 25px;
+                width: auto;
+            }
+
+            .contact-info a, .lang-switcher {
+                color: black;
+                text-decoration: none;
+                white-space: nowrap;
+            }
+
+            .contact-info a:hover, .lang-switcher:hover {
+                color: #f99d1d;
+            }
+
+            .mobile-phone-bar {
+                display: none;
+                background-color: #f8f8f8;
+                padding: 10px 0;
+                text-align: center;
+                border-bottom: 1px solid #eee;
+                position: relative;
+                z-index: 999;
+            }
+
+            .mobile-phone-content {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .mobile-phone-icon {
+                height: 20px;
+                width: auto;
+            }
+
+            .mobile-phone-content a {
+                color: black;
+                text-decoration: none;
+                font-size: 16px;
+                font-weight: 500;
+            }
+
+            .mobile-phone-content a:hover {
+                color: #f99d1d;
+            }
+
+            @media (max-width: 991px) {
+                .desktop-only {
+                    display: none;
+                }
+
+                .mobile-phone-bar {
+                    display: block;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    background: #fff;
+                }
+
+                header {
+                    margin-top: 50px !important;
+                }
+
+                .menu-btn {
+                    display: block;
+                }
+
+                #mainmenu {
+                    position: fixed;
+                    top: 130px;
+                    left: -100%;
+                    width: 100%;
+                    height: calc(100vh - 130px);
+                    background: #fff;
+                    padding: 20px;
+                    transition: all 0.3s ease;
+                    z-index: 999;
+                }
+
+                #mainmenu.active {
+                    left: 0;
+                }
+
+                #mainmenu li {
+                    display: block;
+                    margin: 15px 0;
+                }
+
+                #mainmenu li a {
+                    display: block;
+                    padding: 10px 0;
+                    font-size: 18px;
+                }
+
+                .header-col-mid {
+                    position: static;
+                }
+
+                .menu_side_area {
+                    display: flex;
+                    align-items: center;
+                }
+
+                .btn-main {
+                    display: none;
+                }
+
+                header {
+                    position: fixed !important;
+                    top: 50px;
+                    left: 0;
+                    width: 100%;
+                    z-index: 1000;
+                    background: #fff;
+                }
+
+                .top-bar {
+                    display: none;
+                }
+            }
+
+            @media (max-width: 576px) {
+                .contact-info a, .lang-switcher {
+                    font-size: 14px;
+                }
+
+                .contact-icon {
+                    height: 15px;
+                }
+
+                .lang-icon {
+                    height: 20px;
+                }
+
+                .mobile-phone-content a {
+                    font-size: 15px;
+                }
+            }
+        </style>
+        <header class="transparent header-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="de-flex sm-pt10">
+                            <div class="de-flex-col">
+                                <!-- logo begin -->
+                                <div id="logo">
+                                    <a href="index.html">
+                                        <img class="logo-main" src="images/icon1.png" alt="" style="height: 70%; width: 70%; padding-top: 10px; padding-bottom: 10px;">
+                                        <img class="logo-scroll" src="images/icon1.png" alt="" style="height: 70%; width: 70%; padding-top: 10px; padding-bottom: 10px;">
+                                        <img class="logo-mobile" src="images/icon1.png" alt="" style="height: 70%; width: 70%;">
+                                    </a>
                                 </div>
-                                <div class="de-flex-col header-col-mid">
-                                    <!-- mainemenu begin -->
-                                    <ul id="mainmenu">
-                                        <li><a class="menu-item meme" href="index.html">Home</a></li>
-                                        <li><a class="menu-item" href="services.html">General Care</a></li>
-                                        <li><a class="menu-item" href="services2.html">Specialized Care</a></li>
-                                        <li><a class="menu-item" href="about.html">About Us</a></li>
-                                        <li><a class="menu-item" href="blog.html">Blog</a></li>
-                                        <li><a class="menu-item" href="contact.html">Contact</a></li>
-                                    </ul>
-                                    <!-- mainmenu end -->
+                                <!-- logo end -->
+                            </div>
+                            <div class="de-flex-col header-col-mid">
+                                <!-- mainmenu begin -->
+                                <ul id="mainmenu" class="mobile-menu">
+                                    <li><a class="menu-item meme" href="index.html">Home</a></li>
+                                    <li><a class="menu-item" href="services.html">General Care</a></li>
+                                    <li><a class="menu-item" href="services2.html">Specialized Care</a></li>
+                                    <li><a class="menu-item" href="about.html">About Us</a></li>
+                                    <li><a class="menu-item" href="blog.html">Blog</a></li>
+                                    <li><a class="menu-item" href="contact.html">Contact</a></li>
+                                </ul>
+                                <!-- mainmenu end -->
+                            </div>
+                            <div class="de-flex-col">
+                                <div class="menu_side_area">
+                                    <a href="contact.html"><span class="btn-main fx-slide">Book Appointment</span></a>
+                                    <span id="menu-btn" class="menu-btn"></span>
                                 </div>
-                                <div class="de-flex-col">
-                                    <div class="menu_side_area">
-                                        <a href="contact.html" class="btn-main"><span>Book Appointment</span></a>
-                                        <span id="menu-btn"></span>
-                                    </div>
-                                </div>
+                                <style>
+                                    .btn-main {
+                                        background-color: #8aa842;
+                                        color: white;
+                                        text-decoration: none;
+                                        padding: 8px 20px;
+                                        display: inline-block;
+                                    }
+                                    .btn-main:hover {
+                                        background-color: #f99d1d;
+                                    }
+                                    .btn-main span {
+                                        color: white;
+                                    }
+                                </style>
+                                
                             </div>
                         </div>
                     </div>
@@ -76,12 +343,19 @@
             <div id="top"></div>
             
 
-            <section id="section-intro" class="bg-color-op-1 pb-0 overflow-hidden">
+            <section id="section-intro" class="bg-color-op-1 pb-0 overflow-hidden" style="background-color: #fff;">
                 <div class="container">
                   <div class="row g-4 gx-5 align-items-center">
+
+                    <div class="col-lg-6" style="padding-top: 90px;">
+                        <div class="relative">
+                            <img src="images/new/top.jpg" class="w-100 wow fadeInUp" data-wow-delay=".3s" alt="" >
+                        </div>                        
+                    </div>
+
                     <div class="col-lg-6">
                         <br>
-                        <div class="subtitle s2 mb-3 wow fadeInUp" data-wow-delay=".0s" style="color: #8aa842">Welcome to b cabinet</div>
+                        <div class="subtitle s2 mb-3 wow fadeInUp" data-wow-delay=".0s">Welcome to b cabinet</div>
                         <h1 class="wow fadeInUp" data-wow-delay=".2s">Transforming Smiles With Precision And Gentle Touch</h1>
                         <p class="col-lg-10 wow fadeInUp" data-wow-delay=".4s">We offer high-quality dental care tailored for the whole family. From routine checkups to advanced treatments, our compassionate team ensures your smile stays healthy and confident.</p>
 
@@ -91,7 +365,7 @@
 
                         <div class="d-flex align-items-center text-dark">
                             <div class="me-3">Google Rating</div>
-                            <div class="me-3">5.0</div>
+                            <div class="me-3">4.9</div>
                             <div class="d-flex fs-14 d-rating me-3">
                                 <i class="fa fa-solid fa-star m-1"></i>
                                 <i class="fa fa-solid fa-star m-1"></i>
@@ -99,94 +373,128 @@
                                 <i class="fa fa-solid fa-star m-1"></i>
                                 <i class="fa fa-solid fa-star m-1"></i>
                             </div>
-                            <div class="me-3">Based on 23k Reviews</div>
                         </div>
 
                         <div class="spacer-double"></div>
-                    </div>
-
-                    <div class="col-lg-6">
-                        <div class="relative">
-                            <div class="bg-dark text-light shadow-1 abs end-0 abs-middle p-4 rounded-1 overflow-hidden z-2 wow fadeInRight" data-wow-delay=".5s">
-                                <div class="d-flex justify-content-center">
-                                    <i class="fs-60 text-white icon_clock"></i>
-                                    <div class="ms-3">
-                                        <h4 class="mb-0">Opening Hours</h4>
-                                        Mon to Fri 10:00 - 18:00
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="bg-white shadow-1 abs start-0 bottom-10 p-4 rounded-1 overflow-hidden z-2 wow fadeInLeft" data-wow-delay=".7s">
-                                <div class="d-flex justify-content-center">
-                                    <i class="fs-60 id-color icon_phone"></i>
-                                    <div class="ms-3">
-                                        <h4 class="mb-0">Need Dental Services?</h4>
-                                        Call: + (514) 388-4575
-                                    </div>
-                                </div>
-                            </div>
-                            <img src="images/bao.png" class="w-100 wow fadeInUp" data-wow-delay=".3s" alt="" >
-                        </div>                        
                     </div>
                     
                   </div>
                 </div>
             </section>
-
-        <section>
-                <div class="container">
-                    <div class="row gy-4 gx-5 align-items-center">
-                        <div class="col-lg-6">
-                            <div class="row g-4 align-items-center">
-                                <div class="col-sm-6 text-end">
-                                    <div class="w-80 rounded-1 overflow-hidden mb-25 wow zoomIn d-inline-block">
-                                        <img src="images/new/IMG_0714.jpg" class="w-100 wow scaleIn" alt="">
-                                    </div>
-                                    <div class="w-100 rounded-1 overflow-hidden mb-25 wow zoomIn d-inline-block">
-                                        <img src="images/new/IMG_0715.jpg" class="w-100 wow scaleIn" alt="">
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6">
-                                    <div class="w-100 rounded-1 overflow-hidden mb-25 wow zoomIn d-inline-block">
-                                        <img src="images/new/_MG_7253.JPG" class="w-100 wow scaleIn" alt="">
+            <br>
+            <br>
+            <br>
+            <section>
+                <div class="container" style="max-width: 5000px; margin: 0 auto;">
+                    <div class="row g-4" style="display: flex; justify-content: center;">
+                        <div class="col-lg-3 col-md-6" style="max-width: 2000px;">
+                            <div class="hover">
+                                <div class="bg-color-op-1 h-100 p-50 rounded-1" style="text-align: center; background-color: #f99d1d;">
+                                    <img src="images/new/11.png" class="w-80px mb-4 wow scaleIn" alt="">
+                                    <div class="relative mt-4 wow fadeInUp">
+                                        <h4 style="font-size: 1.5rem; color: #ffffff;">General Care</h4>
+                                        <br>
+                                        <p style="font-size: 1.0rem; color: #ffffff;">Du détartrage au traitement de canal en passant par les restaurations et les prothèses, nous prenons soin de votre santé dentaire sous toutes ses facettes.</p>
+                                        <a class="btn-plus" href="Myotherapy.html" style="color: #ffffff;">
+                                            <i class="fa fa-plus"></i>
+                                            <span>Read more</span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-lg-6">
-                              <div class="me-lg-3">
-                                  <div class="subtitle s2 mb-3 wow fadeInUp" data-wow-delay=".0s">About Us</div>
-                              <h2 class="wow fadeInUp" data-wow-delay=".2s">Professionals and Personalized Dental Excellence</h2>
-                              <p class="wow fadeInUp" data-wow-delay=".4s">We offer high-quality dental care tailored for the whole family. From routine checkups to advanced treatments, our compassionate team ensures your smile stays healthy and confident.</p>
-                              <ul class="ul-check text-dark cols-2 fw-600 mb-4 wow fadeInUp" data-wow-delay=".6s">
-                                <li>Personalized Treatment Plans</li>
-                                <li>Gentle Care for Kids and Adults</li>
-                                <li>State-of-the-Art Technology</li>
-                                <li>Flexible Appointment Scheduling</li>
-                              </ul>
-
-                              <a class="btn-main fx-slide wow fadeInUp" data-wow-delay=".8s" href="contact.html"><span>Book Appointment</span></a>
-                              </div>
+            
+                        <div class="col-lg-3 col-md-6" style="max-width: 2000px;">
+                            <div class="hover">
+                                <div class="bg-color-op-1 h-100 p-50 rounded-1" style="text-align: center; background-color: #d3d3d3;">
+                                    <img src="images/new/22.png" class="w-80px mb-4 wow scaleIn" alt="">
+                                    <div class="relative mt-4 wow fadeInUp">
+                                        <h4 style="font-size: 1.5rem; color: #000000;">Specialized Care</h4>
+                                        <br>
+                                        <p style="font-size: 1.0rem; color: #000000;">La myothérapie, la gestion du bruxisme et la correction de l'alignement des dents avec SureSmileMD et InvisalignMD font partie de nos services de pointe.</p>
+                                        <a class="btn-plus" href="Management-Of-Bruxism.html" style="color: #000000;">
+                                            <i class="fa fa-plus"></i>
+                                            <span>Read more</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        
+            
+                        <div class="col-lg-3 col-md-6" style="max-width: 2000px;">
+                            <div class="h-100 rounded-1" data-bgimage="url(images/new/st1.jpg) center">
+                            </div>
+                        </div>
                     </div>
-
                 </div>
-            </section>            
+            </section>
 
-            <section class="pt-0">
+            
+
+            <section class="bg-color-op-1" style="background-image: linear-gradient(rgba(60, 60, 60, 0.5), rgba(60, 60, 60, 0.5)), url(images/new/IMG_0715.jpg); background-size: cover; background-position: center;">
                 <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 offset-lg-3 text-center">
+                            <h2 class="wow fadeInUp" data-wow-delay=".2s" style="color: #ffffff;">Holistic dentistry is more than just about teeth.</h2>
+                            <p class="wow fadeInUp" style="color: #ffffff;">We take the time to understand each patient to offer personalized dental care and advice that optimizes well-being.</p>
+                            <div class="spacer-single"></div>
+                            <a href="contact.html"><span class="btn-main fx-slide">Book Appointment</span></a>
+                        </div>
+                    </div>
+            
+                    <div class="spacer-double"></div>
+                    <div class="spacer-double"></div>
+            
+                    <div class="row g-4">
+                        <div class="col-md-3 col-sm-6 text-center">
+                            <div class="de_count wow fadeInRight" data-wow-delay=".0s" style="color: #ffffff;">
+                                <h3 class="fs-40 mb-0" style="color: #ffffff;"><span class="timer" data-to="5000" data-speed="3000" style="color: #ffffff;">0</span>+</h3>
+                                Happy Patients
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 text-center">
+                            <div class="de_count wow fadeInRight" data-wow-delay=".2s" style="color: #ffffff;">
+                                <h3 class="fs-40 mb-0" style="color: #ffffff;"><span class="timer" data-to="99" data-speed="3000" style="color: #ffffff;">0</span>% +</h3>
+                                Patient Satisfaction Rate
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 text-center">
+                            <div class="de_count wow fadeInRight" data-wow-delay=".4s" style="color: #ffffff;">
+                                <h3 class="fs-40 mb-0" style="color: #ffffff;"><span class="timer" data-to="50" data-speed="3000" style="color: #ffffff;">0</span>+</h3>
+                                Happy Reviews
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 text-center">
+                            <div class="de_count wow fadeInRight" data-wow-delay=".6s" style="color: #ffffff;">
+                                <h3 class="fs-40 mb-0" style="color: #ffffff;"><span class="timer" data-to="25" data-speed="3000" style="color: #ffffff;">0</span>+</h3>
+                                Years of Exeperience
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <section class="pt-0" style="padding-bottom: 50px;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 offset-lg-3 text-center">
+                            <h2 class="wow fadeInUp" data-wow-delay=".2s" style="color: #f99d1d;">OUR LATEST ARTICLES</h2>
+                            <p class="wow fadeInUp" style="color: #000000;">Are you wondering about the health of your mouth and teeth? Browse our articles for clear answers that will introduce you to the world of dentistry, our profession for over 20 years!</p>
+                            <div class="spacer-single"></div>
+                        </div>
+                    </div>
                     <div class="row g-4">
                         <div class="col-lg-3 col-sm-6">
                             <div class="hover">
                                 <div class="h-100">
-                                    <img src="images/icons/tooth-1.png" class="w-70px mb-3 wow scaleIn" alt="">
+                                    <img src="images/new/brush.jpg" alt="" style="width: 100%; max-width: 100%; height: auto; object-fit: cover;">
                                     <div class="relative mt-4 wow fadeInUp">
                                         <h4>Oral Bacteria Impact</h4>
-                                        <p>How do oral bacteria impact our health?</p>
+                                        <p>April 18, 2023</p>
                                         <a class="btn-plus" href="impact.html">
                                             <i class="fa fa-plus"></i>
                                             <span>Read more</span>
@@ -195,14 +503,14 @@
                                 </div>
                             </div>
                         </div>
-
+            
                         <div class="col-lg-3 col-sm-6">
                             <div class="hover">
                                 <div class="h-100">
-                                    <img src="images/icons/tooth-2.png" class="w-70px mb-3 wow scaleIn" alt="">
+                                    <img src="images/new/girl.jpg" alt="" style="width: 100%; max-width: 100%; height: auto; object-fit: cover;">
                                     <div class="relative mt-4 wow fadeInUp">
                                         <h4>Clear Aligners</h4>
-                                        <p>Clear aligners in 8 questions and answers.</p>
+                                        <p>March 21, 2023</p>
                                         <a class="btn-plus" href="Height.html">
                                             <i class="fa fa-plus"></i>
                                             <span>Read more</span>
@@ -211,14 +519,14 @@
                                 </div>
                             </div>
                         </div>
-
+            
                         <div class="col-lg-3 col-sm-6">
                             <div class="hover">
                                 <div class="h-100">
-                                    <img src="images/icons/tooth-3.png" class="w-70px mb-3 wow scaleIn" alt="">
+                                    <img src="images/new/kid.jpg" alt="" style="width: 100%; max-width: 100%; height: auto; object-fit: cover;">
                                     <div class="relative mt-4 wow fadeInUp">
                                         <h4>Managing Teeth Grinding</h4>
-                                        <p>Bruxism: What solutions are there for managing teeth grinding?</p>
+                                        <p>January 24, 2023</p>
                                         <a class="btn-plus" href="Bruxism.html">
                                             <i class="fa fa-plus"></i>
                                             <span>Read more</span>
@@ -227,14 +535,14 @@
                                 </div>
                             </div>
                         </div>
-
+            
                         <div class="col-lg-3 col-sm-6">
                             <div class="hover">
                                 <div class="h-100">
-                                    <img src="images/icons/tooth-4.png" class="w-70px mb-3 wow scaleIn" alt="">
+                                    <img src="images/new/thf.jpg" alt="" style="width: 100%; max-width: 100%; height: auto; object-fit: cover;">
                                     <div class="relative mt-4 wow fadeInUp">
                                         <h4>Regular Cleaning</h4>
-                                        <p>Why get regular dental cleaning?</p>
+                                        <p>December 16, 2022</p>
                                         <a class="btn-plus" href="Regular.html">
                                             <i class="fa fa-plus"></i>
                                             <span>Read more</span>
@@ -243,297 +551,47 @@
                                 </div>
                             </div>
                         </div>
-                        
-
-                    </div>
-                </div>
-            </section>
-
-            <section class="bg-color-op-1">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6 offset-lg-3 text-center">
-                            <div class="subtitle wow fadeInUp mb-3">Meet Our Dental Team</div>
-                            <h2 class="wow fadeInUp" data-wow-delay=".2s">Committed to Your Smile</h2>
-                            <p class="wow fadeInUp">Our experienced dental team is here to make every visit positive and personalized. With gentle hands and caring hearts.</p>
-                            <div class="spacer-single"></div>
-                        </div>
-                    </div>
-                    <div class="row g-4">
-                        <div class="col-lg-3">
-                            <div class="relative rounded-1 overflow-hidden">
-                                <div class="rounded-1 overflow-hidden wow fadeIn zoomIn">
-                                    <img src="images/team/1.webp" class="w-100 wow scaleIn" alt="">
-                                </div>                                
-                                
-                                <div class="abs w-100 start-0 bottom-0 z-3">
-                                    <div class="p-2 rounded-10 m-3 text-center bg-white wow fadeInDown">
-                                        <h4 class="mb-0">Dr. Sarah Bennett</h4>
-                                        <p class="mb-2">Lead Dentist</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3">
-                            <div class="relative rounded-1 overflow-hidden">
-                                <div class="rounded-1 overflow-hidden wow fadeIn zoomIn">
-                                    <img src="images/team/2.webp" class="w-100 wow scaleIn" alt="">
-                                </div>
-                                
-                                <div class="abs w-100 start-0 bottom-0 z-3">
-                                    <div class="p-2 rounded-10 m-3 text-center bg-white wow fadeInDown">
-                                        <h4 class="mb-0">Dr. Maya Lin</h4>
-                                        <p class="mb-2">Cosmetic Dentist</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3">
-                            <div class="relative rounded-1 overflow-hidden">
-                                <div class="rounded-1 overflow-hidden wow fadeIn zoomIn">
-                                    <img src="images/team/3.webp" class="w-100 wow scaleIn" alt="">
-                                </div>
-                                
-                                <div class="abs w-100 start-0 bottom-0 z-3">
-                                    <div class="p-2 rounded-10 m-3 text-center bg-white wow fadeInDown">
-                                        <h4 class="mb-0">Dr. Michael Reyes</h4>
-                                        <p class="mb-2">Pediatric Specialist</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3">
-                            <div class="relative rounded-1 overflow-hidden">
-                                <div class="rounded-1 overflow-hidden wow fadeIn zoomIn">
-                                    <img src="images/team/4.webp" class="w-100 wow scaleIn" alt="">
-                                </div>
-                                
-                                <div class="abs w-100 start-0 bottom-0 z-3">
-                                    <div class="p-2 rounded-10 m-3 text-center bg-white wow fadeInDown">
-                                        <h4 class="mb-0">Dr. James Carter</h4>
-                                        <p class="mb-2">Dental Hygienist</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="spacer-double"></div>
-                    <div class="spacer-double"></div>
-
-                    <div class="row g-4">
-                        <div class="col-md-3 col-sm-6 text-center">
-                            <div class="de_count wow fadeInRight" data-wow-delay=".0s">
-                                <h3 class="fs-40 mb-0"><span class="timer" data-to="5000" data-speed="3000">0</span>+</h3>
-                                Happy Patients
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 text-center">
-                            <div class="de_count wow fadeInRight" data-wow-delay=".2s">
-                                <h3 class="fs-40 mb-0"><span class="timer" data-to="99" data-speed="3000">0</span>% +</h3>
-                                Patient Satisfaction Rate
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 text-center">
-                            <div class="de_count wow fadeInRight" data-wow-delay=".4s">
-                                <h3 class="fs-40 mb-0"><span class="timer" data-to="50" data-speed="3000">0</span>+</h3>
-                                Happy Reviews
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 text-center">
-                            <div class="de_count wow fadeInRight" data-wow-delay=".6s">
-                                <h3 class="fs-40 mb-0"><span class="timer" data-to="25" data-speed="3000">0</span>+</h3>
-                                Years of Exeperience
-                            </div>
-                        </div>
                     </div>
                 </div>
             </section>
 
 
-            <section>
+            <section class="bg-color-op-1" style="background-color: #fff ;">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6 offset-lg-3 text-center">
-                            <div class="subtitle wow fadeInUp mb-3">Everything You Need To Know</div>
-                            <h2 class="wow fadeInUp" data-wow-delay=".2s">Frequently Asked Questions</h2>
+                    <div class="row g-4 mb-2 justify-content-center">
+                        <div class="col-lg-5 text-center">
+                            <h2 class="wow fadeInUp" data-wow-delay=".2s">SUBSCRIBE TO OUR NEWSLETTER!</h2>
                             <br>
-                            <div class="spacer-single"></div>
                         </div>
                     </div>
-                  <div class="row g-4 gx-5 justify-content-center wow fadeInUp">
-                    <div class="col-lg-12">
-                        <div class="de-tab plain">
-                            <ul class="d-tab-nav mb-4 border-bottom pb-4 d-flex justify-content-between">
-                                <li class="active-tab">General Care</li>
-                                <li>Cosmetic Dentistry</li>
-                                <li>Restorative Dentistry</li>
-                                <li>Insurance &amp; Appointments</li>
-                            </ul>
-                            <ul class="d-tab-content text-start py-4">
-                                <li>
-                                    <div class="accordion-section">
-                                        <div class="accordion-section-title" data-tab="#accordion-a1">
-                                            How often should I visit the dentist?
-                                        </div>
-                                        <div class="accordion-section-content" id="accordion-a1">It’s recommended to see your dentist every 6 months for a routine check-up and cleaning, unless advised otherwise.
-                                        </div>
-                                        <div class="accordion-section-title" data-tab="#accordion-a2">
-                                            What should I do in a dental emergency?
-                                        </div>
-                                        <div class="accordion-section-content" id="accordion-a2">
-                                            Call our office immediately. We offer same-day emergency care for issues like severe pain, broken teeth, or swelling.
-                                        </div>                                        
-                                        <div class="accordion-section-title" data-tab="#accordion-a3">
-                                            Do you offer services for kids?
-                                        </div>
-                                        <div class="accordion-section-content" id="accordion-a3">
-                                            Absolutely! We provide gentle, friendly pediatric dental care for children of all ages.
-                                        </div>
-                                        <div class="accordion-section-title" data-tab="#accordion-a4">
-                                            What are my options for replacing missing teeth?
-                                        </div>
-                                        <div class="accordion-section-content" id="accordion-a4">
-                                            We offer dental implants, bridges, and dentures depending on your needs and preferences.
-                                        </div>
-                                        <div class="accordion-section-title" data-tab="#accordion-a5">
-                                             Is teeth whitening safe?
-                                        </div>
-                                        <div class="accordion-section-content" id="accordion-a5">
-                                            Yes, when performed by a dental professional, teeth whitening is safe and effective with long-lasting results.
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="accordion-section">
-                                        <div class="accordion-section-title" data-tab="#accordion-b1">
-                                            How often should I visit the dentist?
-                                        </div>
-                                        <div class="accordion-section-content" id="accordion-b1">It’s recommended to see your dentist every 6 months for a routine check-up and cleaning, unless advised otherwise.
-                                        </div>
-                                        <div class="accordion-section-title" data-tab="#accordion-b2">
-                                            What should I do in a dental emergency?
-                                        </div>
-                                        <div class="accordion-section-content" id="accordion-b2">
-                                            Call our office immediately. We offer same-day emergency care for issues like severe pain, broken teeth, or swelling.
-                                        </div>                                        
-                                        <div class="accordion-section-title" data-tab="#accordion-b3">
-                                            Do you offer services for kids?
-                                        </div>
-                                        <div class="accordion-section-content" id="accordion-b3">
-                                            Absolutely! We provide gentle, friendly pediatric dental care for children of all ages.
-                                        </div>
-                                        <div class="accordion-section-title" data-tab="#accordion-b4">
-                                            What are my options for replacing missing teeth?
-                                        </div>
-                                        <div class="accordion-section-content" id="accordion-b4">
-                                            We offer dental implants, bridges, and dentures depending on your needs and preferences.
-                                        </div>
-                                        <div class="accordion-section-title" data-tab="#accordion-b5">
-                                             Is teeth whitening safe?
-                                        </div>
-                                        <div class="accordion-section-content" id="accordion-b5">
-                                            Yes, when performed by a dental professional, teeth whitening is safe and effective with long-lasting results.
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="accordion-section">
-                                        <div class="accordion-section-title" data-tab="#accordion-c1">
-                                            How often should I visit the dentist?
-                                        </div>
-                                        <div class="accordion-section-content" id="accordion-c1">It’s recommended to see your dentist every 6 months for a routine check-up and cleaning, unless advised otherwise.
-                                        </div>
-                                        <div class="accordion-section-title" data-tab="#accordion-c2">
-                                            What should I do in a dental emergency?
-                                        </div>
-                                        <div class="accordion-section-content" id="accordion-c2">
-                                            Call our office immediately. We offer same-day emergency care for issues like severe pain, broken teeth, or swelling.
-                                        </div>                                        
-                                        <div class="accordion-section-title" data-tab="#accordion-c3">
-                                            Do you offer services for kids?
-                                        </div>
-                                        <div class="accordion-section-content" id="accordion-c3">
-                                            Absolutely! We provide gentle, friendly pediatric dental care for children of all ages.
-                                        </div>
-                                        <div class="accordion-section-title" data-tab="#accordion-c4">
-                                            What are my options for replacing missing teeth?
-                                        </div>
-                                        <div class="accordion-section-content" id="accordion-c4">
-                                            We offer dental implants, bridges, and dentures depending on your needs and preferences.
-                                        </div>
-                                        <div class="accordion-section-title" data-tab="#accordion-c5">
-                                             Is teeth whitening safe?
-                                        </div>
-                                        <div class="accordion-section-content" id="accordion-c5">
-                                            Yes, when performed by a dental professional, teeth whitening is safe and effective with long-lasting results.
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="accordion-section">
-                                        <div class="accordion-section-title" data-tab="#accordion-d1">
-                                            How often should I visit the dentist?
-                                        </div>
-                                        <div class="accordion-section-content" id="accordion-d1">It’s recommended to see your dentist every 6 months for a routine check-up and cleaning, unless advised otherwise.
-                                        </div>
-                                        <div class="accordion-section-title" data-tab="#accordion-d2">
-                                            What should I do in a dental emergency?
-                                        </div>
-                                        <div class="accordion-section-content" id="accordion-d2">
-                                            Call our office immediately. We offer same-day emergency care for issues like severe pain, broken teeth, or swelling.
-                                        </div>                                        
-                                        <div class="accordion-section-title" data-tab="#accordion-d3">
-                                            Do you offer services for kids?
-                                        </div>
-                                        <div class="accordion-section-content" id="accordion-d3">
-                                            Absolutely! We provide gentle, friendly pediatric dental care for children of all ages.
-                                        </div>
-                                        <div class="accordion-section-title" data-tab="#accordion-d4">
-                                            What are my options for replacing missing teeth?
-                                        </div>
-                                        <div class="accordion-section-content" id="accordion-d4">
-                                            We offer dental implants, bridges, and dentures depending on your needs and preferences.
-                                        </div>
-                                        <div class="accordion-section-title" data-tab="#accordion-d5">
-                                             Is teeth whitening safe?
-                                        </div>
-                                        <div class="accordion-section-content" id="accordion-d5">
-                                            Yes, when performed by a dental professional, teeth whitening is safe and effective with long-lasting results.
-                                        </div>
-                                    </div>
-                                </li>
-
-                            </ul>
+                    <div class="row g-4">
+                        <div class="col-lg-4 col-md-6 wow fadeInUp">
+                            <div class="mb-4">
+                                <input type="text" name="name" id="name" class="form-control" placeholder="first Name" required>
+                            </div>
                         </div>
-                    </div>    
-                  </div>          
+
+                        <div class="col-lg-4 col-md-6 wow fadeInUp">
+                            <div class="mb-4">
+                                <input type="text" name="name" id="name" class="form-control" placeholder="Last Name" required>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 wow fadeInUp">
+                            <div class="mb-4">
+                                <input type="text" name="email" id="email" class="form-control" placeholder="Email" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 offset-lg-3 text-center">
+                                <div class="spacer-double"></div>
+                                <a href="contact.html"  ><span class="btn-main fx-slide">Join Us</span></a>
+                                <div class="spacer-single"></div>
+                            </div>
+                        </div>
                 </div>
             </section>
 
-            <section aria-label="section" class="p-0">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <a class="d-block hover popup-youtube mb-min-100" href="https://www.youtube.com/watch?v=C6rf51uHWJg">
-                                <div class="relative overflow-hidden rounded-1">
-                                    <div class="absolute start-0 w-100 abs-middle fs-36 text-white text-center z-2">
-                                        <div class="player circle wow scaleIn"><span></span></div>
-                                    </div> 
-                                    <div class="absolute w-100 h-100 top-0 bg-dark hover-op-05"></div>
-                                    <img src="images/background/1.webp" class="w-100 hover-scale-1-1" alt="">
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             <section class="bg-color-op-1">
                 <div class="container">
@@ -643,6 +701,172 @@
                     </div>
                 </div>
             </section>                      
+
+
+            <section>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 offset-lg-3 text-center">
+                            <div class="subtitle wow fadeInUp mb-3">Everything You Need To Know</div>
+                            <h2 class="wow fadeInUp" data-wow-delay=".2s">Frequently Asked Questions</h2>
+                            <br>
+                            <div class="spacer-single"></div>
+                        </div>
+                    </div>
+                  <div class="row g-4 gx-5 justify-content-center wow fadeInUp">
+                    <div class="col-lg-12">
+                        <div class="de-tab plain">
+                            <ul class="d-tab-nav mb-4 border-bottom pb-4 d-flex justify-content-between">
+                                <li class="active-tab">General Care</li>
+                                <li>Cosmetic Dentistry</li>
+                                <li>Restorative Dentistry</li>
+                                <li>Insurance &amp; Appointments</li>
+                            </ul>
+                            <ul class="d-tab-content text-start py-4">
+                                <li>
+                                    <div class="accordion-section">
+                                        <div class="accordion-section-title" data-tab="#accordion-a1">
+                                            How often should I visit the dentist?
+                                        </div>
+                                        <div class="accordion-section-content" id="accordion-a1">It's recommended to see your dentist every 6 months for a routine check-up and cleaning, unless advised otherwise.
+                                        </div>
+                                        <div class="accordion-section-title" data-tab="#accordion-a2">
+                                            What should I do in a dental emergency?
+                                        </div>
+                                        <div class="accordion-section-content" id="accordion-a2">
+                                            Call our office immediately. We offer same-day emergency care for issues like severe pain, broken teeth, or swelling.
+                                        </div>                                        
+                                        <div class="accordion-section-title" data-tab="#accordion-a3">
+                                            Do you offer services for kids?
+                                        </div>
+                                        <div class="accordion-section-content" id="accordion-a3">
+                                            Absolutely! We provide gentle, friendly pediatric dental care for children of all ages.
+                                        </div>
+                                        <div class="accordion-section-title" data-tab="#accordion-a4">
+                                            What are my options for replacing missing teeth?
+                                        </div>
+                                        <div class="accordion-section-content" id="accordion-a4">
+                                            We offer dental implants, bridges, and dentures depending on your needs and preferences.
+                                        </div>
+                                        <div class="accordion-section-title" data-tab="#accordion-a5">
+                                             Is teeth whitening safe?
+                                        </div>
+                                        <div class="accordion-section-content" id="accordion-a5">
+                                            Yes, when performed by a dental professional, teeth whitening is safe and effective with long-lasting results.
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="accordion-section">
+                                        <div class="accordion-section-title" data-tab="#accordion-b1">
+                                            How often should I visit the dentist?
+                                        </div>
+                                        <div class="accordion-section-content" id="accordion-b1">It's recommended to see your dentist every 6 months for a routine check-up and cleaning, unless advised otherwise.
+                                        </div>
+                                        <div class="accordion-section-title" data-tab="#accordion-b2">
+                                            What should I do in a dental emergency?
+                                        </div>
+                                        <div class="accordion-section-content" id="accordion-b2">
+                                            Call our office immediately. We offer same-day emergency care for issues like severe pain, broken teeth, or swelling.
+                                        </div>                                        
+                                        <div class="accordion-section-title" data-tab="#accordion-b3">
+                                            Do you offer services for kids?
+                                        </div>
+                                        <div class="accordion-section-content" id="accordion-b3">
+                                            Absolutely! We provide gentle, friendly pediatric dental care for children of all ages.
+                                        </div>
+                                        <div class="accordion-section-title" data-tab="#accordion-b4">
+                                            What are my options for replacing missing teeth?
+                                        </div>
+                                        <div class="accordion-section-content" id="accordion-b4">
+                                            We offer dental implants, bridges, and dentures depending on your needs and preferences.
+                                        </div>
+                                        <div class="accordion-section-title" data-tab="#accordion-b5">
+                                             Is teeth whitening safe?
+                                        </div>
+                                        <div class="accordion-section-content" id="accordion-b5">
+                                            Yes, when performed by a dental professional, teeth whitening is safe and effective with long-lasting results.
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="accordion-section">
+                                        <div class="accordion-section-title" data-tab="#accordion-c1">
+                                            How often should I visit the dentist?
+                                        </div>
+                                        <div class="accordion-section-content" id="accordion-c1">It's recommended to see your dentist every 6 months for a routine check-up and cleaning, unless advised otherwise.
+                                        </div>
+                                        <div class="accordion-section-title" data-tab="#accordion-c2">
+                                            What should I do in a dental emergency?
+                                        </div>
+                                        <div class="accordion-section-content" id="accordion-c2">
+                                            Call our office immediately. We offer same-day emergency care for issues like severe pain, broken teeth, or swelling.
+                                        </div>                                        
+                                        <div class="accordion-section-title" data-tab="#accordion-c3">
+                                            Do you offer services for kids?
+                                        </div>
+                                        <div class="accordion-section-content" id="accordion-c3">
+                                            Absolutely! We provide gentle, friendly pediatric dental care for children of all ages.
+                                        </div>
+                                        <div class="accordion-section-title" data-tab="#accordion-c4">
+                                            What are my options for replacing missing teeth?
+                                        </div>
+                                        <div class="accordion-section-content" id="accordion-c4">
+                                            We offer dental implants, bridges, and dentures depending on your needs and preferences.
+                                        </div>
+                                        <div class="accordion-section-title" data-tab="#accordion-c5">
+                                             Is teeth whitening safe?
+                                        </div>
+                                        <div class="accordion-section-content" id="accordion-c5">
+                                            Yes, when performed by a dental professional, teeth whitening is safe and effective with long-lasting results.
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="accordion-section">
+                                        <div class="accordion-section-title" data-tab="#accordion-d1">
+                                            How often should I visit the dentist?
+                                        </div>
+                                        <div class="accordion-section-content" id="accordion-d1">It's recommended to see your dentist every 6 months for a routine check-up and cleaning, unless advised otherwise.
+                                        </div>
+                                        <div class="accordion-section-title" data-tab="#accordion-d2">
+                                            What should I do in a dental emergency?
+                                        </div>
+                                        <div class="accordion-section-content" id="accordion-d2">
+                                            Call our office immediately. We offer same-day emergency care for issues like severe pain, broken teeth, or swelling.
+                                        </div>                                        
+                                        <div class="accordion-section-title" data-tab="#accordion-d3">
+                                            Do you offer services for kids?
+                                        </div>
+                                        <div class="accordion-section-content" id="accordion-d3">
+                                            Absolutely! We provide gentle, friendly pediatric dental care for children of all ages.
+                                        </div>
+                                        <div class="accordion-section-title" data-tab="#accordion-d4">
+                                            What are my options for replacing missing teeth?
+                                        </div>
+                                        <div class="accordion-section-content" id="accordion-d4">
+                                            We offer dental implants, bridges, and dentures depending on your needs and preferences.
+                                        </div>
+                                        <div class="accordion-section-title" data-tab="#accordion-d5">
+                                             Is teeth whitening safe?
+                                        </div>
+                                        <div class="accordion-section-content" id="accordion-d5">
+                                            Yes, when performed by a dental professional, teeth whitening is safe and effective with long-lasting results.
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>    
+                  </div>          
+                </div>
+            </section>
+
+            
             
         </div>
         <!-- content end -->
@@ -654,7 +878,7 @@
                     <div class="col-lg-4 col-sm-6">
                         <img src="images/logo-footer.png" class="logo-footer" alt="" style="height: 100px; width: auto;">
                         <div class="spacer-20"></div>
-                        <p>At Dentia, we’re dedicated to providing high-quality, personalized dental care for patients of all ages. Our skilled team uses the latest technology to ensure comfortable, efficient treatments and beautiful, healthy smiles for life.</p>
+                        <p>At Dentia, we're dedicated to providing high-quality, personalized dental care for patients of all ages. Our skilled team uses the latest technology to ensure comfortable, efficient treatments and beautiful, healthy smiles for life.</p>
 
                         <div class="social-icons mb-sm-30">
                             <a href="https://www.facebook.com/bcabinetdentaire/"><i class="fa-brands fa-facebook-f"></i></a>
@@ -717,6 +941,35 @@
     <script src="js/swiper.js"></script>
     <script src="js/custom-swiper-1.js"></script>
     <script src="js/custom-marquee.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuBtn = document.getElementById('menu-btn');
+        const mainmenu = document.getElementById('mainmenu');
+
+        menuBtn.addEventListener('click', function() {
+            this.classList.toggle('active');
+            mainmenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!menuBtn.contains(e.target) && !mainmenu.contains(e.target)) {
+                menuBtn.classList.remove('active');
+                mainmenu.classList.remove('active');
+            }
+        });
+
+        // Close menu when clicking menu items
+        const menuItems = mainmenu.getElementsByTagName('a');
+        for (let item of menuItems) {
+            item.addEventListener('click', function() {
+                menuBtn.classList.remove('active');
+                mainmenu.classList.remove('active');
+            });
+        }
+    });
+    </script>
 
 </body>
 

@@ -85,8 +85,65 @@
         </header>
         <!-- header end -->
         <!-- content begin -->
-        <div class="no-bottom no-top" id="content">
+        <style>
+            /* Ensure the subheader section maintains consistent height */
+            #subheader {
+                min-height: 400px; /* Updated from 200px */
+                max-height: 400px;
+                overflow: hidden; /* Prevent content overflow */
+            }
 
+            /* Ensure each card has a fixed or minimum size */
+            .hover, .hover .bg-color-op-1 {
+                min-height: 470px; /* Updated from 350px */
+                max-height: 470px;
+                min-width: 100%; /* Ensure it takes full column width */
+                box-sizing: border-box;
+            }
+
+            /* Fix the background image section size */
+            [data-bgimage] {
+                min-height: 470px; /* Updated from 350px */
+                max-height: 470px;
+                min-width: 100%;
+                background-size: cover; /* Ensure image covers without distortion */
+                background-position: center;
+            }
+
+            /* Prevent text or content from causing resizing */
+            .relative {
+                max-height: 100%; /* Ensure content fits within card */
+                overflow: hidden;
+            }
+
+            /* Ensure consistent column widths */
+            .col-lg-3, .col-md-6 {
+                flex: 0 0 25%; /* Fixed width for large screens */
+                max-width: 25%; /* Prevent columns from growing */
+            }
+
+            /* For medium screens, adjust column width */
+            @media (max-width: 991px) {
+                .col-md-6 {
+                    flex: 0 0 50%;
+                    max-width: 50%;
+                }
+            }
+
+            /* For smaller screens, ensure full width but fixed height */
+            @media (max-width: 767px) {
+                .col-md-6 {
+                    flex: 0 0 100%;
+                    max-width: 100%;
+                }
+                .hover, .hover .bg-color-op-1, [data-bgimage] {
+                    min-height: 470px; /* Updated from 350px */
+                    max-height: 470px;
+                }
+            }
+        </style>
+
+        <div class="no-bottom no-top" id="content">
             <div id="top"></div>
 
             <section id="subheader" class="bg-color-op-1 text-center">
@@ -103,10 +160,9 @@
                     </div>
                 </div>
             </section>
-            
+
             <section>
                 <div class="container">
-
                     <div class="row g-4">
                         <div class="col-lg-3 col-md-6">
                             <div class="hover">
@@ -114,7 +170,6 @@
                                     <img src="images/icons/tooth-1.png" class="w-70px mb-3 wow scaleIn" alt="">
                                     <div class="relative mt-4 wow fadeInUp">
                                         <h4>Dentisterie familiale</h4>
-                                        <br>
                                         <p>Nous accueillons les enfants et les adultes pour leur suivi dentaire. Notre souhait, c’est de devenir votre dentiste de famille!</p>
                                         <a class="btn-plus" href="family-dentistry-fr.html">
                                             <i class="fa fa-plus"></i>
@@ -142,8 +197,7 @@
                         </div>
 
                         <div class="col-lg-3 col-md-6">
-                            <div class="h-100 rounded-1" data-bgimage="url(images/logo22.png) center">
-                            </div>
+                            <div class="h-100 rounded-1" data-bgimage="url(images/logo22.png) center"></div>
                         </div>
 
                         <div class="col-lg-3 col-md-6">
@@ -153,7 +207,7 @@
                                     <div class="relative mt-4 wow fadeInUp">
                                         <h4>Parodontie</h4>
                                         <br>
-                                        <p>Prendre soin de ses gencives est tout aussi important que s’occuper de ses dents! </p>
+                                        <p>Prendre soin de ses gencives est tout aussi important que s’occuper de ses dents!</p>
                                         <br>
                                         <a class="btn-plus" href="pediodontics-fr.html">
                                             <i class="fa fa-plus"></i>
@@ -163,7 +217,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-lg-3 col-md-6">
                             <div class="hover">
                                 <div class="bg-color-op-1 h-100 p-40 rounded-1">
@@ -171,7 +225,7 @@
                                     <div class="relative mt-4 wow fadeInUp">
                                         <h4>Chirurgie</h4>
                                         <br>
-                                        <p>Il est parfois nécessaire d’effectuer une intervention chirurgicale pour remédier à un problème dentaire. </p>
+                                        <p>Il est parfois nécessaire d’effectuer une intervention chirurgicale pour remédier à un problème dentaire.</p>
                                         <a class="btn-plus" href="surgery-fr.html">
                                             <i class="fa fa-plus"></i>
                                             <span>Lire plus</span>
@@ -182,8 +236,7 @@
                         </div>
 
                         <div class="col-lg-3 col-md-6">
-                            <div class="h-100 rounded-1" data-bgimage="url(images/logo33.jpg) center">
-                            </div>
+                            <div class="h-100 rounded-1" data-bgimage="url(images/kid2.png) center"></div>
                         </div>
 
                         <div class="col-lg-3 col-md-6">
@@ -192,7 +245,7 @@
                                     <img src="images/icons/tooth-5.png" class="w-70px mb-3 wow scaleIn" alt="">
                                     <div class="relative mt-4 wow fadeInUp">
                                         <h4>Esthétique</h4>
-                                        <p>Votre sourire fait partie des éléments qui vous donnent confiance en vous. Pourquoi ne pas le faire rayonner à son plein potentiel?                                        </p>
+                                        <p>Votre sourire fait partie des éléments qui vous donnent confiance en vous. Pourquoi ne pas le faire rayonner à son plein potentiel?</p>
                                         <a class="btn-plus" href="aesthetics-fr.html">
                                             <i class="fa fa-plus"></i>
                                             <span>Lire plus</span>
@@ -217,12 +270,9 @@
                                 </div>
                             </div>
                         </div>
-                        
-
                     </div>
                 </div>
-            </section>         
-
+            </section>
         </div>
         <!-- content end -->
 

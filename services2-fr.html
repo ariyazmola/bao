@@ -85,87 +85,141 @@
         </header>
         <!-- header end -->
         <!-- content begin -->
-        <div class="no-bottom no-top" id="content">
-
-            <div id="top"></div>
-
-            <section id="subheader" class="bg-color-op-1 text-center">
-                <div class="container relative z-2">
-                    <div class="row align-items-center">
-                        <div class="col-lg-12">
-                            <h1 class="wow fadeInUp">Soins spécialisés</h1>
-                            <div class="border-bottom my-3"></div>
-                            <ul class="crumb wow fadeInDown">
-                                <li><a href="index-fr.html">Accueil</a></li>
-                                <li class="active">Soins spécialisés</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
+        <style>
+            /* Ensure the subheader section maintains consistent height */
+            #subheader {
+                min-height: 400px; /* Adjust as needed */
+                max-height: 400px;
+                overflow: hidden; /* Prevent content overflow */
+            }
             
-            <section>
-                <div class="container">
-
-                    <div class="row g-4">
-                        <div class="col-lg-3 col-md-6">
-                            <div class="hover">
-                                <div class="bg-color-op-1 h-100 p-40 rounded-1">
-                                    <img src="images/icons/tooth-1.png" class="w-70px mb-3 wow scaleIn" alt="">
-                                    <div class="relative mt-4 wow fadeInUp">
-                                        <h4>Myothérapie</h4>
-                                        <p>La thérapie myofonctionnelle, ou myothérapie, est un apprentissage neurologique regroupant des exercices.</p>
-                                        <a class="btn-plus" href="myotherapy-fr.html">
-                                            <i class="fa fa-plus"></i>
-                                            <span>Lire plus</span>
-                                        </a>
+            /* Ensure each card has a fixed or minimum size */
+            .hover, .hover .bg-color-op-1 {
+                min-height: 470px; /* Adjust as needed */
+                max-height: 470px;
+                min-width: 100%; /* Ensure it takes full column width */
+                box-sizing: border-box;
+            }
+            
+            /* Fix the background image section size */
+            [data-bgimage] {
+                min-height: 470px; /* Match other cards */
+                max-height: 470px;
+                min-width: 100%;
+                background-size: cover; /* Ensure image covers without distortion */
+                background-position: center;
+            }
+            
+            /* Prevent text or content from causing resizing */
+            .relative {
+                max-height: 100%; /* Ensure content fits within card */
+                overflow: hidden;
+            }
+            
+            /* Ensure consistent column widths */
+            .col-lg-3, .col-md-6 {
+                flex: 0 0 25%; /* Fixed width for large screens */
+                max-width: 25%; /* Prevent columns from growing */
+            }
+            
+            /* For medium screens, adjust column width */
+            @media (max-width: 991px) {
+                .col-md-6 {
+                    flex: 0 0 50%;
+                    max-width: 50%;
+                }
+            }
+            
+            /* For smaller screens, ensure full width but fixed height */
+            @media (max-width: 767px) {
+                .col-md-6 {
+                    flex: 0 0 100%;
+                    max-width: 100%;
+                }
+                .hover, .hover .bg-color-op-1, [data-bgimage] {
+                    min-height: 470px; /* Keep consistent height */
+                    max-height: 470px;
+                }
+            }
+            </style>
+            
+            <div class="no-bottom no-top" id="content">
+                <div id="top"></div>
+            
+                <section id="subheader" class="bg-color-op-1 text-center">
+                    <div class="container relative z-2">
+                        <div class="row align-items-center">
+                            <div class="col-lg-12">
+                                <h1 class="wow fadeInUp">Soins spécialisés</h1>
+                                <div class="border-bottom my-3"></div>
+                                <ul class="crumb wow fadeInDown">
+                                    <li><a href="index-fr.html">Accueil</a></li>
+                                    <li class="active">Soins spécialisés</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            
+                <section>
+                    <div class="container">
+                        <div class="row g-4">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="hover">
+                                    <div class="bg-color-op-1 h-100 p-40 rounded-1">
+                                        <img src="images/icons/tooth-1.png" class="w-70px mb-3 wow scaleIn" alt="">
+                                        <div class="relative mt-4 wow fadeInUp">
+                                            <h4>Myothérapie</h4>
+                                            <p>La thérapie myofonctionnelle, ou myothérapie, est un apprentissage neurologique regroupant des exercices.</p>
+                                            <a class="btn-plus" href="myotherapy-fr.html">
+                                                <i class="fa fa-plus"></i>
+                                                <span>Lire plus</span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6">
-                            <div class="hover">
-                                <div class="bg-color-op-1 h-100 p-40 rounded-1">
-                                    <img src="images/icons/tooth-2.png" class="w-70px mb-3 wow scaleIn" alt="">
-                                    <div class="relative mt-4 wow fadeInUp">
-                                        <h4>Gestion du bruxisme</h4>
-                                        <br>
-                                        <p>Le bruxisme se caractérise par un serrement ou un grincement involontaire des dents.</p>
-                                        <a class="btn-plus" href="management-of-bruxism-fr.html">
-                                            <i class="fa fa-plus"></i>
-                                            <span>Lire plus</span>
-                                        </a>
+            
+                            <div class="col-lg-3 col-md-6">
+                                <div class="hover">
+                                    <div class="bg-color-op-1 h-100 p-40 rounded-1">
+                                        <img src="images/icons/tooth-2.png" class="w-70px mb-3 wow scaleIn" alt="">
+                                        <div class="relative mt-4 wow fadeInUp">
+                                            <h4>Gestion du bruxisme</h4>
+                                            <br>
+                                            <p>Le bruxisme se caractérise par un serrement ou un grincement involontaire des dents.</p>
+                                            <a class="btn-plus" href="management-of-bruxism-fr.html">
+                                                <i class="fa fa-plus"></i>
+                                                <span>Lire plus</span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6">
-                            <div class="h-100 rounded-1" data-bgimage="url(images/logo22.png) center">
+            
+                            <div class="col-lg-3 col-md-6">
+                                <div class="h-100 rounded-1" data-bgimage="url(images/logo22.png) center"></div>
                             </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6">
-                            <div class="hover">
-                                <div class="bg-color-op-1 h-100 p-40 rounded-1">
-                                    <img src="images/icons/tooth-3.png" class="w-70px mb-3 wow scaleIn" alt="">
-                                    <div class="relative mt-4 wow fadeInUp">
-                                        <h4>SureSmile® et Invisaligh®</h4>
-                                        <p>Les systèmes SureSmileMD et InvisalignMD sont des gouttières transparentes, fabriquées sur mesure.</p>
-                                        <a class="btn-plus" href="suresmile-and-invisaligh-fr.html">
-                                            <i class="fa fa-plus"></i>
-                                            <span>Lire plus</span>
-                                        </a>
+            
+                            <div class="col-lg-3 col-md-6">
+                                <div class="hover">
+                                    <div class="bg-color-op-1 h-100 p-40 rounded-1">
+                                        <img src="images/icons/tooth-3.png" class="w-70px mb-3 wow scaleIn" alt="">
+                                        <div class="relative mt-4 wow fadeInUp">
+                                            <h4>SureSmile® et<br> Invisaligh®</h4>
+                                            <p>Les systèmes SureSmileMD et InvisalignMD sont des gouttières transparentes, fabriquées sur mesure.</p>
+                                            <a class="btn-plus" href="suresmile-and-invisaligh-fr.html">
+                                                <i class="fa fa-plus"></i>
+                                                <span>Lire plus</span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>         
-
-        </div>
+                </section>
+            </div>
         <!-- content end -->
 
         <!-- footer begin -->

@@ -183,7 +183,7 @@
                         <div class="col-lg-6">
                             <div class="p-40 bg-color-op-1 rounded-1">
                                 <h3>Contactez-Nous</h3>
-                                <form name="contactForm" id="contact_form" method="post" action="contact.php">
+                                <div name="contactForm" id="contact_form">
 
                                     <div class="mb-4">
                                         <input type="text" name="name" id="name" class="form-control" placeholder="Votre Nom" required>
@@ -206,13 +206,8 @@
                                         <input type='submit' id='send_message' value='Envoyez le message' class="btn-main">
                                     </div>
 
-                                    <div id="success_message" class='success'>
-                                        Your message has been sent successfully. Refresh this page if you want to send more messages.
-                                    </div>
-                                    <div id="error_message" class='error'>
-                                        Sorry there was an error sending your form.
-                                    </div>
-                                </form>
+                                    
+                                </div>
                             </div>
                         </div>
 
@@ -290,6 +285,41 @@
     <script src="js/plugins.js"></script>
     <script src="js/designesia.js"></script>
     <script src="js/validation-contact.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function(){
+        emailjs.init("of-qJpcXvDgROkkbD");
+    })();
+    </script>
+<script>
+function sendEmail() {
+    
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var subject = document.getElementById("subject").value;
+    var phone = document.getElementById("phone").value;
+    var message = document.getElementById("message").value;
+    
+
+    // Sending email using EmailJS
+    emailjs.send("service_1efdh2i", "template_1w5on08", {
+        name: name,
+        email: email,
+        phone: phone,
+        subject : "Page Contact",
+        message: message,
+        clinique_name : "clinique dentaire B cabinet",
+        dentist_email : "info@bcabinetdentaire.com"
+    })
+    .then(function(response) {
+        // Email sent successfully
+        alert("Message sent, thank you " + name);
+    }, function(error) {
+        // Email sending failed
+        console.error("Email sending error:", error);
+    });
+}
+</script>
 
 </body>
 
